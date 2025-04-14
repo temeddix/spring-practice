@@ -6,4 +6,4 @@ stripe:
   apiUrl:
   enabled:
   timeout:
-  currencies:
+  supportedCurrencies:
