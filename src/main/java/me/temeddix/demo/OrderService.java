@@ -1,5 +1,8 @@
 package me.temeddix.demo;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class OrderService {
     private final PaymentService paymentService;
 
