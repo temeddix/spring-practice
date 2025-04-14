@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class StoreApplication {
     public static void main(String[] args) {
         var context = SpringApplication.run(StoreApplication.class, args);
-        context.getBean(OrderService.class).placeOrder();
+        var orderService = context.getBean(OrderService.class);
+        orderService.placeOrder();
     }
 }
