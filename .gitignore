@@ -25,3 +25,6 @@ replay_pid*
 
 # Built Web Files
 /target
+
+# Sensitive Information
+application.properties
