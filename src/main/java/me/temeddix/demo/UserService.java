@@ -13,11 +13,7 @@ public class UserService {
     }
 
     public void registerUser(User user) {
-        var did_succeed = userRepository.save(user);
-        if (did_succeed) {
-            notificationService.send("User added", user.email);
-        } else {
-            notificationService.send("User already exists", user.email);
-        }
+        userRepository.save(user);
+        notificationService.send("User added", user.email);
     }
 }

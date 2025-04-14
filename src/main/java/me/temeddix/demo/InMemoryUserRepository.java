@@ -13,13 +13,11 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     @Override
-    public boolean save(User user) {
+    public void save(User user) {
         if (users.containsKey(user.email)) {
-            System.out.println("Already exists: " + users.get(user.email));
-            return false;
+            throw new IllegalArgumentException("User already exists");
         }
         users.put(user.email, user);
         System.out.println("Added: " + users.get(user.email));
-        return true;
     }
 }
