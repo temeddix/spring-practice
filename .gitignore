@@ -27,4 +27,4 @@ replay_pid*
 /target
 
 # Sensitive Information
-application.properties
+application.yaml

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name:
+
+stripe:
+  apiUrl:
+  enabled:
+  timeout:
+  currencies:

@@ -1,5 +1,0 @@
-spring.application.name=
-stripe.apiUrl=
-stripe.enabled=
-stripe.timeout=
-stripe.supportedCurrencies=
