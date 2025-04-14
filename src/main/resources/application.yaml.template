@@ -1,9 +1,2 @@
-spring:
-  application:
-    name:
-
-stripe:
-  apiUrl:
-  enabled:
-  timeout:
-  supportedCurrencies:
+mailServer:
+  port:
