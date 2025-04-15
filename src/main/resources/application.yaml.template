@@ -1,6 +1,10 @@
 spring:
   application:
     name:
+  datasource:
+    url:
+    username:
+    password:
 
 stripe:
   apiUrl:
