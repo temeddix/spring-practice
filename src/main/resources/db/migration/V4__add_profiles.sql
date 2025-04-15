@@ -1,6 +1,6 @@
 create table
   `profiles` (
-    `id` int unsigned not null auto_increment,
+    `id` int unsigned not null,
     `bio` VARCHAR(255) not null,
     `phone_number` varchar(255) not null,
     `date_of_birth` DATETIME not null,
