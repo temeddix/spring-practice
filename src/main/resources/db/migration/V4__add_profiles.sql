@@ -1,11 +1,9 @@
-create table
-  `profiles` (
-    `id` int unsigned not null,
-    `bio` VARCHAR(255) not null,
-    `phone_number` varchar(255) not null,
-    `date_of_birth` DATETIME not null,
-    `loyalty_points` INT UNSIGNED not null default 0,
-    primary key (`id`),
-    KEY `profiles_relation_1` (`id`),
-    CONSTRAINT `profiles_relation_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-  );
+CREATE TABLE profiles (
+    id INT UNSIGNED NOT NULL PRIMARY KEY,
+    bio TEXT,
+    phone_number VARCHAR(15),
+    date_of_birth DATE,
+    loyalty_points INT UNSIGNED DEFAULT 0,
+    FOREIGN KEY (id) REFERENCES users (id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
