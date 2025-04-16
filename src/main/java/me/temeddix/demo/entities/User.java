@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -48,6 +49,7 @@ public class User {
   private List<Address> addresses = new ArrayList<>();
 
   @Builder.Default
+  @ManyToMany(mappedBy = "users")
   private Set<Tag> tags = new HashSet<>();
 
   @OneToOne(mappedBy = "user")
