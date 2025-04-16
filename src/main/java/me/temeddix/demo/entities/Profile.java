@@ -6,33 +6,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import java.util.Date;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "profiles")
+public class Profile {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
 
-  @Column(name = "name", nullable = false)
-  private String name;
+  @Column(name = "bio", nullable = false)
+  private String bio;
 
-  @Column(name = "email", nullable = false)
-  private String email;
+  @Column(name = "phone_number", nullable = false)
+  private String phoneNumber;
 
-  @Column(name = "password", nullable = false)
-  private String password;
+  @Column(name = "date_of_birth", nullable = false)
+  private Date dateOfBirth;
+
+  @Column(name = "loyalty_points", nullable = false)
+  private Integer loyaltyPoints;
 
 }
