@@ -1,6 +1,5 @@
 package me.temeddix.demo;
 
-import me.temeddix.demo.entities.Address;
 import me.temeddix.demo.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,9 +10,8 @@ public class StoreApplication {
 //    var context = SpringApplication.run(StoreApplication.class, args);
     var user = User.builder().name("John").email("john@example.com")
         .password("password").build();
-    var address = Address.builder().user(user).street("123 Main St")
-        .city("New York").state("NY").zip("10001").build();
-    user.addAddress(address);
+
+    user.addTag("tag_one");
     System.out.println(user);
   }
 }

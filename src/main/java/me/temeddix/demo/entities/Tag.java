@@ -5,12 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "tags")
 public class Tag {
@@ -22,5 +27,13 @@ public class Tag {
 
   @Column(name = "name", nullable = false)
   private String name;
+
+  @ManyToMany(mappedBy = "tags")
+  @ToString.Exclude
+  private Set<User> users = new HashSet<>();
+
+  public Tag(String name) {
+    this.name = name;
+  }
 
 }
