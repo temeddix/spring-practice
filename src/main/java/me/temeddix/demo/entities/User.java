@@ -5,18 +5,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 @Entity
 @Table(name = "users")
 public class User {
@@ -34,5 +39,14 @@ public class User {
 
   @Column(name = "password", nullable = false)
   private String password;
+
+  @OneToMany(mappedBy = "user")
+  @Builder.Default
+  private List<Address> addresses = new ArrayList<>();
+
+  public void addAddress(Address address) {
+    addresses.add(address);
+    address.setUser(this);
+  }
 
 }
