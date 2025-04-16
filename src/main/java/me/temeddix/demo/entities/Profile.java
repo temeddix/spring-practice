@@ -30,7 +30,7 @@ public class Profile {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private Long id;
+  private Integer id;
 
   @Column(name = "bio")
   private String bio;
