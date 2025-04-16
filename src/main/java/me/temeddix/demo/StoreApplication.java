@@ -1,13 +1,15 @@
 package me.temeddix.demo;
 
-import org.springframework.boot.SpringApplication;
+import me.temeddix.demo.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StoreApplication {
-    public static void main(String[] args) {
-        var context = SpringApplication.run(StoreApplication.class, args);
-        var orderService = context.getBean(OrderService.class);
-        orderService.placeOrder();
-    }
+
+  public static void main(String[] args) {
+//    var context = SpringApplication.run(StoreApplication.class, args);
+    var user = User.builder().name("John").email("john@example.com")
+        .password("password").build();
+    System.out.println(user);
+  }
 }
