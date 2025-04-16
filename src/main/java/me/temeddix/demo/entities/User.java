@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,14 +46,16 @@ public class User {
   @OneToMany(mappedBy = "user")
   @Builder.Default
   private List<Address> addresses = new ArrayList<>();
-  
+
   @Builder.Default
   private Set<Tag> tags = new HashSet<>();
 
-  public void addTag(String tagName) {
-    var tag = new Tag(tagName);
-    tags.add(tag);
-    tag.getUsers().add(this);
+  @OneToOne(mappedBy = "user")
+  private Profile profile;
+
+  public void addProfile(Profile profile) {
+    this.profile = profile;
+    profile.setUser(this);
   }
 
 }

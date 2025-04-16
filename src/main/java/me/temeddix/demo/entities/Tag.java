@@ -28,8 +28,8 @@ public class Tag {
   @Column(name = "name", nullable = false)
   private String name;
 
-  @ManyToMany(mappedBy = "tags")
   @ToString.Exclude
+  @ManyToMany(mappedBy = "tags")
   private Set<User> users = new HashSet<>();
 
   public Tag(String name) {

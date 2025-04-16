@@ -1,5 +1,6 @@
 package me.temeddix.demo;
 
+import me.temeddix.demo.entities.Profile;
 import me.temeddix.demo.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,8 +11,8 @@ public class StoreApplication {
 //    var context = SpringApplication.run(StoreApplication.class, args);
     var user = User.builder().name("John").email("john@example.com")
         .password("password").build();
-
-    user.addTag("tag_one");
+    var profile = Profile.builder().bio("about myself...").build();
+    user.addProfile(profile);
     System.out.println(user);
   }
 }
