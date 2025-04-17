@@ -5,9 +5,6 @@ spring:
     url:
     username:
     password:
-
-stripe:
-  apiUrl:
-  enabled:
-  timeout:
-  supportedCurrencies:
+  jpa:
+    hibernate:
+      ddl-auto: validate
