@@ -50,10 +50,14 @@ public class User {
 
   @Builder.Default
   @ManyToMany(mappedBy = "users")
-  private Set<Tag> tags = new HashSet<>();
+  private Set<Product> products = new HashSet<>();
 
   @OneToOne(mappedBy = "user")
   private Profile profile;
+
+  @Builder.Default
+  @ManyToMany(mappedBy = "users")
+  private Set<Tag> tags = new HashSet<>();
 
   public void addProfile(Profile profile) {
     this.profile = profile;
