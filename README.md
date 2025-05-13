@@ -18,12 +18,13 @@ brew services start mysql
 ## Windows
 
 ```shell
-choco install openjdk
-choco install mysql
+scoop bucket add java
+scoop install java/openjdk
+scoop install mysql
 ```
 
 ```shell
-mysqld
+net start mysql
 ```
 
 ```shell
