@@ -3,6 +3,11 @@
 ## macOS
 
 ```shell
+brew install openjdk
+brew install mysql
+```
+
+```shell
 brew services start mysql
 ```
 
@@ -11,6 +16,11 @@ brew services start mysql
 ```
 
 ## Windows
+
+```shell
+choco install openjdk
+choco install mysql
+```
 
 ```shell
 mysqld
