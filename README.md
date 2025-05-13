@@ -12,9 +12,7 @@ brew services start mysql
 
 ## Windows
 
-```shell
-Start-Service -Name 'MySQL80'
-```
+Use "MySQL Configurator" to start the server.
 
 ```shell
 .\mvnw.cmd spring-boot:run
