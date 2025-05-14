@@ -1,20 +1,20 @@
 services:
-  spring-practice-server:
+  backend-server:
     build: ./server
     restart: always
     depends_on:
-      - spring-practice-db
+      - mysql-db
     ports:
       - "8080:8080"
     environment:
-      MYSQL_DATABASE: jdbc:mysql://spring-practice-db:3306/store
+      MYSQL_DATABASE: jdbc:mysql://mysql-db:3306/store
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
       SPRING_FLYWAY_ENABLED: ${SPRING_FLYWAY_ENABLED}
     networks:
-      - spring-practice-network
-  spring-practice-db:
+      - local-network
+  mysql-db:
     image: mysql:9.3
     restart: always
     ports:
@@ -25,13 +25,13 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - spring-practice-db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
     networks:
-      - spring-practice-network
+      - local-network
 
 volumes:
-  spring-practice-db-data:
+  db-data:
 
 networks:
-  spring-practice-network:
+  local-network:
     driver: bridge
