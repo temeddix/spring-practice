@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: store
+  datasource:
+    url: ${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+
+stripe:
+  apiUrl: https://api.stripe.com
+  enabled: true
+  timeout: 1000
+  supportedCurrencies: USD,EUR
+
+mailServer:
+  port: 765

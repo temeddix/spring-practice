@@ -1,32 +1,46 @@
 # spring-practice
 
-## macOS
+## Docker (Cross-Platform)
+
+You can run this application using Docker and Docker Compose on any platform:
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/) (usually included with Docker Desktop)
+
+### Running the Application
+
+1. Create an environment file:
 
 ```shell
-brew install openjdk
-brew install mysql
+cp .env.template .env
 ```
+
+You can edit the `.env` file to customize database credentials and other settings.
+
+2. Build and start the containers:
 
 ```shell
-brew services start mysql
+docker-compose up -d --build
 ```
+
+3. View logs:
 
 ```shell
-./mvnw spring-boot:run
+docker-compose logs -f
 ```
 
-## Windows
-
-```shell
-scoop bucket add java
-scoop install java/openjdk
-scoop install mysql
-```
+4. Stop the application:
 
 ```shell
-net start mysql
+docker-compose down
 ```
 
+5. To delete all data (including the MySQL volume):
+
 ```shell
-.\mvnw.cmd spring-boot:run
+docker-compose down -v
 ```
+
+The application will be available at http://localhost:8080

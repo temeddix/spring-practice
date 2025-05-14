@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
@@ -39,6 +41,7 @@ public class Profile {
   private String phoneNumber;
 
   @Column(name = "date_of_birth")
+  @Temporal(TemporalType.DATE)
   private Date dateOfBirth;
 
   @Column(name = "loyalty_points")
