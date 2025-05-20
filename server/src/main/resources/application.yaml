@@ -6,6 +6,10 @@ spring:
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
 
+logging:
+  level:
+    me.temeddix.demo: DEBUG
+
 stripe:
   apiUrl: https://api.stripe.com
   enabled: true
