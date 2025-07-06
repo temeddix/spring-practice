@@ -4,6 +4,7 @@ import me.temeddix.demo.entities.Member;
 import me.temeddix.demo.repositories.MemberRepository;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -37,5 +38,23 @@ public class MemberController {
     public Member put(@PathVariable("id") Long id, @RequestBody Member member) {
         member.setId(id);
         return memberRepository.save(member);
+    }
+
+    @PatchMapping("/{id}")
+    public Member patch(@PathVariable("id") Long id, @RequestBody Member member) {
+        Member existingMember = memberRepository.findById(id).orElse(null);
+        if (existingMember != null) {
+            if (member.getName() != null) {
+                existingMember.setName(member.getName());
+            }
+            if (member.getEmail() != null) {
+                existingMember.setEmail(member.getEmail());
+            }
+            if (member.getAge() != null) {
+                existingMember.setAge(member.getAge());
+            }
+            memberRepository.save(existingMember);
+        }
+        return existingMember;
     }
 }
