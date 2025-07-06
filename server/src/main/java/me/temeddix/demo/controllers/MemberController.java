@@ -2,6 +2,8 @@ package me.temeddix.demo.controllers;
 
 import me.temeddix.demo.entities.Member;
 import me.temeddix.demo.repositories.MemberRepository;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberRepository memberRepository;
+
+    @GetMapping
+    public List<Member> getAll() {
+        return memberRepository.findAll();
+    }
 
     @PostMapping
     public Member post(@RequestBody Member member) {
