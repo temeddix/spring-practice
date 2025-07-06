@@ -3,6 +3,8 @@ package me.temeddix.demo.controllers;
 import me.temeddix.demo.entities.Member;
 import me.temeddix.demo.repositories.MemberRepository;
 import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,5 +58,10 @@ public class MemberController {
             memberRepository.save(existingMember);
         }
         return existingMember;
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        memberRepository.deleteById(id);
     }
 }
